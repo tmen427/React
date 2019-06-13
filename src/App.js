@@ -3,7 +3,7 @@ import FriendCard from "./components/FriendCard";
 import Wrapper from "./components/Wrapper";
 import Title from "./components/Title";
 import friends from "./friends.json";
-import { timingSafeEqual } from "crypto";
+
 
 class App extends Component {
   // Setting this.state.friends to the friends json array
@@ -37,7 +37,7 @@ score = (id) => {
      // var first = this.state.array[0];
        for (var i=0; i<=this.state.array.length; i++) {         // for loops to check if you have clicked on an image TWICE or not 
           for (var j=0; j<=this.state.array.length; j++) {               
-            if (i!=j) {
+            if (i!==j) {
             if (this.state.array[i]===this.state.array[j]) {
             
             // if (first === this.state.array[i+1]) {     //compares the first image you clicked on versus all the following ones, if they are equal then you lose 
@@ -75,13 +75,13 @@ score = (id) => {
     
       <Wrapper>
         <h1>Click on an image to score points, but don't click on an image twice!</h1>
-             {this.state.topscore==0 &&  <Title>  { begin ==0  ? 'Click image to start': ''} | Score: {this.state.count} | Top Score: {this.state.topscore} </Title>
+             {this.state.topscore===0 &&  <Title>  { begin ===0  ? 'Click image to start': ''} | Score: {this.state.count} | Top Score: {this.state.topscore} </Title>
              }
 
              {begin>0 &&   <Title>  { begin>0 ?  'Winning!' : ''} | Score: {this.state.count} | Top Score: {this.state.topscore} </Title>
              }
 
-            {this.state.topscore>0 && <Title> {  begin==0 ? 'You lost! Click on any image to play again' : ''}     </Title>    }
+            {this.state.topscore>0 && <Title> {  begin===0 ? 'You lost! Click on any image to play again' : ''}     </Title>    }
 
 
         {this.state.friends.map(friend => (
